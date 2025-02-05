@@ -1,2 +1,2 @@
-# bdrelacionales
-Base de Datos relacionales
+# Wong Valenzuela Angel Guillermo 
+4AVP
