@@ -1,11 +1,14 @@
-<?php 
-    header("Content-Type: application/json");
-    header("Acces-Control-Allow-Origin: *");
+<?php
+    $host = '192.168.1.12';
+    $user = 'sakila_user?';
+    $pass = 'sakila';
+    $dbname = 'sakila';
+    
+    //crear conexion
+    $conn = new mysqli($host, $user, $pass, $dbname);
 
-    $usuarios=[
-        ["id"=>1, "nombre" => "Angel Wong", "correo" => "angel@gmail.com"],
-        ["id"=>1, "nombre" => "Paolo Valedez", "correo" => "Paolo@gmail.com"],
-        ["id"=>1, "nombre" => "Luis Moya ", "correo" => "Luis@gmail.com"],
-    ];
-
-    echo json_encode($usuarios);
+    //verificarconexion
+    if($conn->connect_error){
+        http_response_code(500);
+        echo json_encode(['error' => 'Error de conexion: ' . $conn->connect_error]);
+    }
